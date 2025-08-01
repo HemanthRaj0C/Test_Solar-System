@@ -9,13 +9,13 @@ import Starfield from './components/Starfield';
 import './App.css';
 
 const planets = [
-  { name: 'Mercury', textureUrl: 'https://www.solarsystemscope.com/textures/download/2k_mercury.jpg', size: 0.38, distance: 4, orbitalSpeed: 0.4, rotationSpeed: 0.01 },
-  { name: 'Venus', textureUrl: 'https://www.solarsystemscope.com/textures/download/2k_venus_surface.jpg', size: 0.95, distance: 7, orbitalSpeed: 0.35, rotationSpeed: 0.005 },
-  { name: 'Mars', textureUrl: 'https://www.solarsystemscope.com/textures/download/2k_mars.jpg', size: 0.53, distance: 15, orbitalSpeed: 0.24, rotationSpeed: 0.02 },
-  { name: 'Jupiter', textureUrl: 'https://www.solarsystemscope.com/textures/download/2k_jupiter.jpg', size: 4, distance: 25, orbitalSpeed: 0.13, rotationSpeed: 0.05 },
-  { name: 'Saturn', textureUrl: 'https://www.solarsystemscope.com/textures/download/2k_saturn.jpg', ringTextureUrl: 'https://www.solarsystemscope.com/textures/download/2k_saturn_ring_alpha.png', size: 3.5, distance: 40, orbitalSpeed: 0.09, rotationSpeed: 0.045 },
-  { name: 'Uranus', textureUrl: 'https://www.solarsystemscope.com/textures/download/2k_uranus.jpg', size: 2, distance: 55, orbitalSpeed: 0.06, rotationSpeed: 0.03 },
-  { name: 'Neptune', textureUrl: 'https://www.solarsystemscope.com/textures/download/2k_neptune.jpg', size: 1.9, distance: 70, orbitalSpeed: 0.05, rotationSpeed: 0.025 },
+  { name: 'Mercury', textureUrl: '2k_mercury.jpg', size: 0.38, distance: 4, orbitalSpeed: 0.4, rotationSpeed: 0.01 },
+  { name: 'Venus', textureUrl: '2k_venus_surface.jpg', size: 0.95, distance: 7, orbitalSpeed: 0.35, rotationSpeed: 0.005 },
+  { name: 'Mars', textureUrl: '2k_mars.jpg', size: 0.53, distance: 15, orbitalSpeed: 0.24, rotationSpeed: 0.02 },
+  { name: 'Jupiter', textureUrl: '2k_jupiter.jpg', size: 4, distance: 25, orbitalSpeed: 0.13, rotationSpeed: 0.05 },
+  { name: 'Saturn', textureUrl: '2k_saturn.jpg', ringTextureUrl: '2k_saturn_ring_alpha.png', size: 3.5, distance: 40, orbitalSpeed: 0.09, rotationSpeed: 0.045 },
+  { name: 'Uranus', textureUrl: '2k_uranus.jpg', size: 2, distance: 55, orbitalSpeed: 0.06, rotationSpeed: 0.03 },
+  { name: 'Neptune', textureUrl: '2k_neptune.jpg', size: 1.9, distance: 70, orbitalSpeed: 0.05, rotationSpeed: 0.025 },
 ];
 
 const EarthSystem = () => {
@@ -33,7 +33,7 @@ const EarthSystem = () => {
   return (
     <group ref={groupRef}>
       <Planet
-        textureUrl="https://www.solarsystemscope.com/textures/download/2k_earth_daymap.jpg"
+        textureUrl="2k_earth_daymap.jpg"
         size={1}
         distance={0}
         orbitalSpeed={0}

@@ -12,8 +12,8 @@ const Planet = ({
   ringTextureUrl,
 }) => {
   const meshRef = useRef();
-  const texture = useLoader(TextureLoader, textureUrl);
-  const ringTexture = ringTextureUrl ? useLoader(TextureLoader, ringTextureUrl) : null;
+  const texture = useLoader(TextureLoader, `/assets/textures/${textureUrl}`);
+  const ringTexture = ringTextureUrl ? useLoader(TextureLoader, `/assets/textures/${ringTextureUrl}`) : null;
 
   useFrame(({ clock }) => {
     if (meshRef.current) {

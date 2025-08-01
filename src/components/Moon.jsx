@@ -4,7 +4,7 @@ import { TextureLoader } from 'three';
 
 const Moon = () => {
   const meshRef = useRef();
-  const texture = useLoader(TextureLoader, 'https://www.solarsystemscope.com/textures/download/2k_moon.jpg');
+  const texture = useLoader(TextureLoader, '/assets/textures/2k_moon.jpg');
 
   useFrame(({ clock }) => {
     if (meshRef.current) {
