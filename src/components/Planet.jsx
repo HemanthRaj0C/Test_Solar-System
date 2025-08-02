@@ -10,6 +10,8 @@ const Planet = ({
   orbitalSpeed,
   rotationSpeed,
   ringTextureUrl,
+  onClick,
+  children,
 }) => {
   const meshRef = useRef();
   const texture = useLoader(TextureLoader, `/assets/textures/${textureUrl}`);
@@ -29,7 +31,7 @@ const Planet = ({
 
   return (
     <group ref={meshRef}>
-      <mesh castShadow receiveShadow>
+      <mesh castShadow receiveShadow onClick={onClick}>
         <sphereGeometry args={[size, 32, 32]} />
         <meshStandardMaterial map={texture} />
       </mesh>
@@ -39,6 +41,7 @@ const Planet = ({
           <meshBasicMaterial map={ringTexture} side={THREE.DoubleSide} transparent />
         </mesh>
       )}
+      {children}
     </group>
   );
 };

@@ -3,7 +3,7 @@ import { useFrame, useLoader } from '@react-three/fiber';
 import { TextureLoader } from 'three';
 import * as THREE from 'three';
 
-const Sun = () => {
+const Sun = ({ onClick }) => {
   const meshRef = useRef();
   const texture = useLoader(TextureLoader, '/assets/textures/2k_sun.jpg');
 
@@ -14,7 +14,7 @@ const Sun = () => {
   });
 
   return (
-    <mesh ref={meshRef}>
+    <mesh ref={meshRef} onClick={onClick}>
       <sphereGeometry args={[2, 32, 32]} />
       <meshStandardMaterial
         map={texture}
