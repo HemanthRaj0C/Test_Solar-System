@@ -8,6 +8,7 @@ const CameraControlsManager = ({ selectedPlanet }) => {
 
   useFrame(({ clock }) => {
     if (selectedPlanet) {
+      console.log("Selected Planet:", selectedPlanet);
       const angle = clock.getElapsedTime() * selectedPlanet.orbitalSpeed;
       const distance = selectedPlanet.distance;
       planetPosition.current.set(
@@ -23,6 +24,10 @@ const CameraControlsManager = ({ selectedPlanet }) => {
         controls.target.lerp(planetPosition.current, 0.1);
         camera.position.lerp(idealCameraPosition, 0.1);
         controls.update();
+
+        console.log("Planet Position:", planetPosition.current);
+        console.log("Camera Position:", camera.position);
+        console.log("Controls Target:", controls.target);
       }
     } else {
       if (controls) {
