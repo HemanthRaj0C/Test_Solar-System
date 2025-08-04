@@ -32,11 +32,16 @@ const CameraControlsManager = ({ selectedPlanet }) => {
 
   useEffect(() => {
     if (controls) {
-      controls.enablePan = true;
-      controls.enableZoom = true;
-      controls.enableRotate = true;
+      if (selectedPlanet) {
+        controls.enabled = false;
+      } else {
+        controls.enabled = true;
+        controls.enablePan = true;
+        controls.enableZoom = true;
+        controls.enableRotate = true;
+      }
     }
-  }, [controls]);
+  }, [selectedPlanet, controls]);
 
   return null;
 };
