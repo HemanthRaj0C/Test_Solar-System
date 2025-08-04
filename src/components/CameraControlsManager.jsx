@@ -7,8 +7,11 @@ const CameraControlsManager = ({ selectedPlanet }) => {
   const planetPosition = useRef(new THREE.Vector3());
 
   useFrame(({ clock }) => {
+    if (!controls) {
+      return;
+    }
+
     if (selectedPlanet) {
-      console.log("Selected Planet:", selectedPlanet);
       const angle = clock.getElapsedTime() * selectedPlanet.orbitalSpeed;
       const distance = selectedPlanet.distance;
       planetPosition.current.set(
@@ -17,24 +20,16 @@ const CameraControlsManager = ({ selectedPlanet }) => {
         Math.cos(angle) * distance
       );
 
-      if (controls) {
-        const idealOffset = new THREE.Vector3(0, 5, selectedPlanet.size * 5);
-        const idealCameraPosition = new THREE.Vector3().addVectors(planetPosition.current, idealOffset);
+      const idealOffset = new THREE.Vector3(0, 5, selectedPlanet.size * 5);
+      const idealCameraPosition = new THREE.Vector3().addVectors(planetPosition.current, idealOffset);
 
-        controls.target.lerp(planetPosition.current, 0.1);
-        camera.position.lerp(idealCameraPosition, 0.1);
-        controls.update();
-
-        console.log("Planet Position:", planetPosition.current);
-        console.log("Camera Position:", camera.position);
-        console.log("Controls Target:", controls.target);
-      }
+      controls.target.lerp(planetPosition.current, 0.1);
+      camera.position.lerp(idealCameraPosition, 0.1);
+      controls.update();
     } else {
-      if (controls) {
-        controls.target.lerp(new THREE.Vector3(0, 0, 0), 0.1);
-        camera.position.lerp(new THREE.Vector3(0, 40, 100), 0.1);
-        controls.update();
-      }
+      controls.target.lerp(new THREE.Vector3(0, 0, 0), 0.1);
+      camera.position.lerp(new THREE.Vector3(0, 40, 100), 0.1);
+      controls.update();
     }
   });
 
