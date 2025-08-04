@@ -17,31 +17,29 @@ const CameraControlsManager = ({ selectedPlanet }) => {
       );
 
       if (controls) {
-        controls.target.lerp(planetPosition.current, 0.1);
         const idealOffset = new THREE.Vector3(0, 5, selectedPlanet.size * 5);
         const idealCameraPosition = new THREE.Vector3().addVectors(planetPosition.current, idealOffset);
+
+        controls.target.lerp(planetPosition.current, 0.1);
         camera.position.lerp(idealCameraPosition, 0.1);
+        controls.update();
       }
     } else {
       if (controls) {
         controls.target.lerp(new THREE.Vector3(0, 0, 0), 0.1);
         camera.position.lerp(new THREE.Vector3(0, 40, 100), 0.1);
+        controls.update();
       }
     }
   });
 
   useEffect(() => {
     if (controls) {
-      if (selectedPlanet) {
-        controls.enabled = false;
-      } else {
-        controls.enabled = true;
-        controls.enablePan = true;
-        controls.enableZoom = true;
-        controls.enableRotate = true;
-      }
+      controls.enablePan = true;
+      controls.enableZoom = true;
+      controls.enableRotate = true;
     }
-  }, [selectedPlanet, controls]);
+  }, [controls]);
 
   return null;
 };

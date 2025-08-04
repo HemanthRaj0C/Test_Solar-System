@@ -44,8 +44,8 @@ function App() {
           </Planet>
         ))}
         <AsteroidBelt />
-        <OrbitControls />
         <CameraControlsManager selectedPlanet={selectedPlanet} />
+        <OrbitControls />
       </Canvas>
     </div>
   );
